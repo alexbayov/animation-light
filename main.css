@@ -1,0 +1,63 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.street {
+    position: relative;
+    width: 1100px;
+    margin: 20px auto 0 auto;
+    overflow: hidden;
+}
+
+.crown-tree {
+    background: url("images/crown-tree-2.png") no-repeat;
+    width: 241px;
+    height: 233px;
+    position: absolute;
+    top: 70px;
+    left: 150px;
+}
+
+.street-image {
+    width: 1100px;
+    height: 100%;
+}
+
+.policmen {
+    width: 261px;
+    height: 715px;
+    position: absolute;
+    background: url("images/policmen.png") no-repeat;
+    top: -50px;
+    left: 820px;
+    transform: scale(0.5);
+}
+
+.fly {
+    background: url("images/fly.png") no-repeat 50% 50%;
+    width: 100px;
+    height: 24px;
+    position: absolute;
+    top: 30px;
+    left: 1300px;
+    animation: fly 25s linear forwards;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateX(1000px);
+    }
+    100% {
+        transform: translateX(-1500px);
+    }
+}
+
+.light {
+    background: url("images/ligth-with-bird.png") no-repeat;
+    height: 476px;
+    width: 56px;
+    position: absolute;
+    top: 10px;
+    left: 750px;
+    transform: scale(0.8);
+}
