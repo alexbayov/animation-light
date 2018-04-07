@@ -23,7 +23,7 @@ body {
     height: 100%;
 }
 
-.policmen {
+.policeman {
     width: 261px;
     height: 715px;
     position: absolute;
@@ -60,4 +60,134 @@ body {
     top: 10px;
     left: 750px;
     transform: scale(0.8);
+}
+
+.container1 {
+    padding: 40px 0 20px;
+    width: 50px;
+    text-align: center;
+    float: left;
+}
+ul {
+    list-style: none;
+    padding: 20px 10px 20px 10px;
+    display: inline-block;
+    background: #3C4147;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,.7), 2px 2px 1px #3C4147;
+    animation: traffic-light 12s step-end;
+}
+
+li {
+    margin-top: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: black;
+    box-shadow: inset 2px 2px 4px rgba(0,0,0,.4), inset -2px -2px 4px rgba(255,255,255,.6);
+}
+
+@keyframes traffic-light {
+    0% {
+        background: #3C4147;
+    }
+    100% {
+        background: none;
+    }
+}
+
+@keyframes traffic {
+    100%{background: #FB000D;}
+}
+@keyframes traffic1 {
+    100%{background: #FED21D;}
+}
+@keyframes traffic2 {
+    100%{background: #7DFA04;}
+}
+
+.container1 li:nth-of-type(1) {
+    margin-bottom:5px;
+    animation: traffic 5s backwards;
+}
+.container1 li:nth-of-type(2) {
+    margin-bottom: 5px;
+    animation: traffic1 5s backwards 5s;
+}
+.container1 li:nth-of-type(3) {
+    animation: traffic2 5s forwards 10s;
+}
+
+.text {
+    position: relative;
+    right: 400px;
+    width: 400px;
+}
+
+.text-first {
+    font-size: 20px;
+    font-weight: normal;
+    cursor: pointer;
+    text-shadow: 0 0 20px transparent;
+    color: transparent;
+    animation: animation-first 5s ease-in 1s;
+}
+
+.text-second {
+    font-size: 20px;
+    font-weight: normal;
+    cursor: pointer;
+    text-shadow: 0 0 20px transparent;
+    color: transparent;
+    animation: animation-second 5s ease-in 6s;
+}
+
+.text-third {
+    font-size: 20px;
+    font-weight: normal;
+    cursor: pointer;
+    text-shadow: 0 0 20px transparent;
+    color: transparent;
+    animation: animation-third 5s both 11s;
+}
+
+.container2 {
+    width: 450px;
+    text-align: center;
+}
+
+@keyframes animation-first {
+    10% {
+        text-shadow: 0 0px 1px #3C4147;
+    }
+    60% {
+        text-shadow: 0 0px 1px #3C4147;
+    }
+    90% {
+        text-shadow: 0 30px 40px transparent;
+    }
+}
+
+@keyframes animation-second{
+    10% {
+        text-shadow: 0 0px 1px #3C4147;
+    }
+    60% {
+        text-shadow: 0 0px 1px #3C4147;
+    }
+    90% {
+        text-shadow: 0 30px 40px transparent;
+    }
+}
+
+@keyframes animation-third {
+    10% {
+        text-shadow: 0 0px 2px #3C4147;
+    }
+    60% {
+        text-shadow: 0 0px 1px #3C4147;
+    }
+    100% {
+        text-shadow: 0 0px 1px #3C4147;
+    }
 }
