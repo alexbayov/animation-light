@@ -7,6 +7,7 @@ body {
     width: 1100px;
     margin: 50px auto 0 auto;
     overflow: hidden;
+    animation: street 2s linear 22s forwards;
 }
 
 .crown-tree {
@@ -23,7 +24,16 @@ body {
     height: 100%;
 }
 
-.street:before {
+@keyframes street {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.street::before {
     content: "";
     position: absolute;
     background: url("images/bird.png") no-repeat 50% 50%;
@@ -35,7 +45,7 @@ body {
     animation: bird-second 2s infinite steps(1, start);
 }
 
-.street:after {
+.street::after {
     content: "";
     position: absolute;
     background: url("images/bird.png") no-repeat 50% 50%;
@@ -68,6 +78,87 @@ body {
     top: -110px;
     left: 820px;
     transform: scale(0.5);
+}
+
+.container::after {
+    content: "";
+    width: 261px;
+    height: 350px;
+    position: absolute;
+    background: url("images/policmen.png") no-repeat;
+    top: 100px;
+    left: 750px;
+    opacity: 0;
+    animation: policemen 2s forwards 24s;
+}
+
+.box {
+    position: absolute;
+}
+
+.box::before {
+    content: "";
+    position: absolute;
+    top: -220px;
+    left: 820px;
+    /*border: 2px solid red;*/
+    width: 30px;
+    height: 30px;
+    /*background-image: linear-gradient(65deg, transparent 15%, rgba(255, 255, 255, 0.2) 35%, transparent 55%);*/
+    border-radius: 0 0 50% 50%;
+    animation: flare 1s linear forwards ;
+    animation-iteration-count: 1;
+}
+
+
+@keyframes blick {
+    0% {
+        background: linear-gradient(315deg, transparent 15%, #fff 35%, transparent 55%) no-repeat;
+    }
+    25% {
+        background: linear-gradient(315deg, transparent 35%, #fff 55%, transparent 75%) no-repeat;
+    }
+    50% {
+        background: linear-gradient(315deg, transparent 55%, #fff 75%, transparent 95%) no-repeat;
+    }
+    100% {
+        background: linear-gradient(315deg, transparent 75%, #fff 95%, transparent 105%) no-repeat;
+    }
+}
+
+
+@keyframes flare
+{
+    0%   { background-position: -10px; }
+    100 { background-position: 50px; }
+}
+
+
+.container:before {
+    content: "Счастливого пути!";
+    padding-top: 130px;
+    padding-right: 70px;
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    background: url("images/voice.png") no-repeat 50% 50%;
+    background-size: 65%;
+    width: 461px;
+    height: 200px;
+    position: absolute;
+    top: -60px;
+    left: 350px;
+    opacity: 0;
+    animation: policemen 8s backwards 26s;
+}
+
+@keyframes policemen {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .fly {
