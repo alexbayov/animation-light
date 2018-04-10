@@ -7,7 +7,7 @@ body {
     width: 1100px;
     margin: 50px auto 0 auto;
     overflow: hidden;
-    animation: street 2s linear 22s forwards;
+    animation: invisible 2s linear 22s forwards;
 }
 
 .crown-tree {
@@ -22,15 +22,6 @@ body {
 .street-image {
     width: 1100px;
     height: 100%;
-}
-
-@keyframes street {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
 }
 
 .street::before {
@@ -57,19 +48,6 @@ body {
     animation: bird-second 2s infinite steps(1, start) -1s;
 }
 
-@keyframes bird-second  {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 50% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
-
-}
-
 .policeman {
     width: 261px;
     height: 715px;
@@ -80,7 +58,7 @@ body {
     transform: scale(0.5);
 }
 
-.container::after {
+.policemen-big::after {
     content: "";
     width: 261px;
     height: 350px;
@@ -89,44 +67,21 @@ body {
     top: 100px;
     left: 750px;
     opacity: 0;
-    animation: policemen 2s forwards 24s, policemen-second 2s forwards 34s;
+    animation: invisible 2s forwards 24s reverse, invisible 2s forwards 34s;
 }
 
-/*.box {*/
-    /*position: absolute;*/
-/*}*/
-
-.box::before {
-    content: "";
-    position: absolute;
-    top: -220px;
-    left: 820px;
-    /*border: 2px solid red;*/
-    width: 30px;
-    height: 30px;
-    /*background-image: linear-gradient(65deg, transparent 15%, rgba(255, 255, 255, 0.2) 35%, transparent 55%);*/
-    border-radius: 0 0 50% 50%;
-    animation: flare 1s linear forwards ;
-    animation-iteration-count: 1;
-}
-
-.box {
+.blink {
     background: transparent;   display: inline-block;
     padding: 10px;
     position: relative;
-    color: white;
-    text-decoration: none;
-    font-family: arial;
     top: -220px;
     left: 820px;
-    /*border: 2px solid red;*/
     width: 10px;
     height: 15px;
-    /*background-image: linear-gradient(65deg, transparent 15%, rgba(255, 255, 255, 0.2) 35%, transparent 55%);*/
     border-radius: 0 0 50% 50%;
     overflow: hidden;
 }
-.box:after {
+.blink::after {
     content: '';
     width: 15px;
     height: 125px;
@@ -135,31 +90,12 @@ body {
     right: -100px;
     position: absolute;
     top: -44px;
-    /*-webkit-transform-origin: 0 0;*/
-    /*-webkit-transform: rotate(35deg);*/
-    /*-moz-transform-origin: 0 0;*/
-    /*-moz-transform: rotate(35deg);*/
-    /*-ms-transform-origin: 0 0;*/
-    /*-ms-transform: rotate(35deg);*/
     transform: rotate(35deg);
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
     animation: flare 3s linear backwards 31s;
-    /*border: 2px solid red;*/
-}
-.box:hover:after {
-    right: 10px;
-}
-@keyframes flare
-{
-    0%   { left: -100px; }
-    100% { left: 70px; }
 }
 
-.container:before {
+.policemen-big::before {
     content: "Счастливого пути!";
     padding-top: 130px;
     padding-right: 70px;
@@ -174,28 +110,8 @@ body {
     top: -60px;
     left: 350px;
     opacity: 0;
-    animation: policemen 8s backwards 26s;
+    animation: invisible 8s forwards 26s;
 }
-
-@keyframes policemen {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes policemen-second {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-
 
 .fly {
     background: url("images/fly.png") no-repeat 50% 50%;
@@ -205,15 +121,6 @@ body {
     top: 30px;
     left: 1300px;
     animation: fly 25s linear forwards;
-}
-
-@keyframes fly {
-    0% {
-        transform: translateX(1000px);
-    }
-    100% {
-        transform: translateX(-1500px);
-    }
 }
 
 .light {
@@ -226,7 +133,7 @@ body {
     transform: scale(0.8);
 }
 
-.container1 {
+.three-lights {
     position: relative;
     top: -5px;
     padding: 0px 0 0px;
@@ -234,6 +141,7 @@ body {
     text-align: center;
     float: left;
 }
+
 ul {
     list-style: none;
     padding: 20px 10px 20px 10px;
@@ -253,13 +161,69 @@ li {
     box-shadow: inset 2px 2px 4px rgba(0,0,0,.4), inset -2px -2px 4px rgba(255,255,255,.6);
 }
 
+.three-lights li:nth-of-type(1) {
+    margin-bottom:5px;
+    animation: traffic 5s backwards;
+}
+.three-lights li:nth-of-type(2) {
+    margin-bottom: 5px;
+    animation: traffic1 5s backwards 5s;
+}
+.three-lights li:nth-of-type(3) {animation: traffic2 5s forwards 10s;}
+
+.text-main {
+    width: 450px;
+    text-align: center;
+}
+.text {
+    font-weight: normal;
+    font-size: 20px;
+    position: relative;
+    top: -20px;
+    right: 400px;
+    width: 400px;
+    text-shadow: 0 0 20px transparent;
+    color: transparent;
+}
+
+.text-first {animation: animation-first 5s ease-in 1s;}
+
+.text-second {animation: animation-second 5s ease-in 6s;}
+
+.text-third {animation: animation-third 5s both 11s;}
+
+.three-lights:before {
+    content: "";
+    background: url("images/bird-in-light.png") no-repeat;
+    width: 50px;
+    height: 48px;
+    position: absolute;
+    top: -40px;
+    left: 2px;
+    animation: bird-first 5s infinite steps(2, start);
+}
+
 @keyframes traffic-light {
-    0% {
-        background: #3C4147;
-    }
-    100% {
-        background: none;
-    }
+    0% {background: #3C4147;}
+    100% {background: none;}
+}
+
+@keyframes animation-first {
+    10% {text-shadow: 0 0px 1px #3C4147;}
+    60% {text-shadow: 0 0px 1px #3C4147;}
+    90% {text-shadow: 0 30px 40px transparent;}
+}
+
+@keyframes animation-second{
+    10% {text-shadow: 0 0px 1px #3C4147;}
+    60% {text-shadow: 0 0px 1px #3C4147;}
+    90% {text-shadow: 0 30px 40px transparent;}
+}
+
+@keyframes animation-third {
+    10% {text-shadow: 0 0px 2px #3C4147;}
+    60% {text-shadow: 0 0px 1px #3C4147;}
+    100% {text-shadow: 0 0px 1px transparent;}
 }
 
 @keyframes traffic {
@@ -272,99 +236,28 @@ li {
     100%{background: #7DFA04;}
 }
 
-.container1 li:nth-of-type(1) {
-    margin-bottom:5px;
-    animation: traffic 5s backwards;
-}
-.container1 li:nth-of-type(2) {
-    margin-bottom: 5px;
-    animation: traffic1 5s backwards 5s;
-}
-.container1 li:nth-of-type(3) {
-    animation: traffic2 5s forwards 10s;
+@keyframes flare {
+    0%   { left: -100px; }
+    100% { left: 70px; }
 }
 
-.text {
-    font-weight: normal;
-    font-size: 20px;
-    position: relative;
-    top: -20px;
-    right: 400px;
-    width: 400px;
-    text-shadow: 0 0 20px transparent;
-    color: transparent;
-}
-
-.text-first {
-    animation: animation-first 5s ease-in 1s;
-}
-
-.text-second {
-    animation: animation-second 5s ease-in 6s;
-}
-
-.text-third {
-    animation: animation-third 5s both 11s;
-}
-
-.container2 {
-    width: 450px;
-    text-align: center;
-}
-
-@keyframes animation-first {
-    10% {
-        text-shadow: 0 0px 1px #3C4147;
-    }
-    60% {
-        text-shadow: 0 0px 1px #3C4147;
-    }
-    90% {
-        text-shadow: 0 30px 40px transparent;
-    }
-}
-
-@keyframes animation-second{
-    10% {
-        text-shadow: 0 0px 1px #3C4147;
-    }
-    60% {
-        text-shadow: 0 0px 1px #3C4147;
-    }
-    90% {
-        text-shadow: 0 30px 40px transparent;
-    }
-}
-
-@keyframes animation-third {
-    10% {
-        text-shadow: 0 0px 2px #3C4147;
-    }
-    60% {
-        text-shadow: 0 0px 1px #3C4147;
-    }
-    100% {
-        text-shadow: 0 0px 1px transparent;
-    }
-}
-
-.container1:before {
-    content: "";
-    background: url("images/bird-in-light.png") no-repeat;
-    width: 50px;
-    height: 48px;
-    position: absolute;
-    top: -40px;
-    left: 2px;
-    animation: bird-first 5s infinite steps(2, start);
+@keyframes bird-second  {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 50% 50%;}
+    100% {background-position: 100% 50%;}
 }
 
 @keyframes bird-first {
-    0% {
-        background-position: -100% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
+    0% {background-position: -100% 50%;}
+    100% {background-position: 100% 50%;}
+}
 
+@keyframes fly {
+    0% {transform: translateX(1000px);}
+    100% {transform: translateX(-1500px);}
+}
+
+@keyframes invisible {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
 }
