@@ -89,12 +89,12 @@ body {
     top: 100px;
     left: 750px;
     opacity: 0;
-    animation: policemen 2s forwards 24s;
+    animation: policemen 2s forwards 24s, policemen-second 2s forwards 34s;
 }
 
-.box {
-    position: absolute;
-}
+/*.box {*/
+    /*position: absolute;*/
+/*}*/
 
 .box::before {
     content: "";
@@ -110,29 +110,54 @@ body {
     animation-iteration-count: 1;
 }
 
-
-@keyframes blick {
-    0% {
-        background: linear-gradient(315deg, transparent 15%, #fff 35%, transparent 55%) no-repeat;
-    }
-    25% {
-        background: linear-gradient(315deg, transparent 35%, #fff 55%, transparent 75%) no-repeat;
-    }
-    50% {
-        background: linear-gradient(315deg, transparent 55%, #fff 75%, transparent 95%) no-repeat;
-    }
-    100% {
-        background: linear-gradient(315deg, transparent 75%, #fff 95%, transparent 105%) no-repeat;
-    }
+.box {
+    background: transparent;   display: inline-block;
+    padding: 10px;
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-family: arial;
+    top: -220px;
+    left: 820px;
+    /*border: 2px solid red;*/
+    width: 10px;
+    height: 15px;
+    /*background-image: linear-gradient(65deg, transparent 15%, rgba(255, 255, 255, 0.2) 35%, transparent 55%);*/
+    border-radius: 0 0 50% 50%;
+    overflow: hidden;
 }
-
-
+.box:after {
+    content: '';
+    width: 15px;
+    height: 125px;
+    display: block;
+    background: rgba(255, 255, 255, 0.2);
+    right: -100px;
+    position: absolute;
+    top: -44px;
+    /*-webkit-transform-origin: 0 0;*/
+    /*-webkit-transform: rotate(35deg);*/
+    /*-moz-transform-origin: 0 0;*/
+    /*-moz-transform: rotate(35deg);*/
+    /*-ms-transform-origin: 0 0;*/
+    /*-ms-transform: rotate(35deg);*/
+    transform: rotate(35deg);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    animation: flare 3s linear backwards 31s;
+    /*border: 2px solid red;*/
+}
+.box:hover:after {
+    right: 10px;
+}
 @keyframes flare
 {
-    0%   { background-position: -10px; }
-    100 { background-position: 50px; }
+    0%   { left: -100px; }
+    100% { left: 70px; }
 }
-
 
 .container:before {
     content: "Счастливого пути!";
@@ -160,6 +185,17 @@ body {
         opacity: 1;
     }
 }
+
+@keyframes policemen-second {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
 
 .fly {
     background: url("images/fly.png") no-repeat 50% 50%;
